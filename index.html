@@ -82,7 +82,33 @@
     footer img{height:34px;opacity:.95}
     footer a{color:#cfdcea;text-decoration:none}
 
+    /* Careers / contact form */
+    .form-band{background:var(--navy);color:#fff}
+    .form-band .eyebrow{color:var(--coral)}
+    .form-band h2{color:#fff}
+    .form-band>.wrap>.form-grid>div p{color:#d6e0ec;max-width:46ch}
+    .form-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+    .form-card{background:#fff;border-radius:18px;padding:30px;color:var(--ink)}
+    .field{margin-bottom:15px}
+    .field>label{display:block;font-family:var(--track);font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+    .field input,.field textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-family:var(--sans);font-size:15px;color:var(--ink);background:#fff}
+    .field input:focus,.field textarea:focus{outline:none;border-color:var(--coral);box-shadow:0 0 0 3px rgba(255,122,138,.25)}
+    .field textarea{min-height:104px;resize:vertical}
+    .seg{display:flex;gap:10px}
+    .seg label{position:relative;flex:1;border:1px solid var(--line);border-radius:10px;padding:11px;text-align:center;cursor:pointer;font-size:14px;color:var(--muted)}
+    .seg label:has(input:checked){border-color:var(--coral);background:#fff5f6;color:var(--navy);font-weight:600}
+    .seg input{position:absolute;opacity:0;inset:0;cursor:pointer}
+    .btn-submit{width:100%;background:var(--coral);color:var(--navy-deep);border:none;border-radius:999px;padding:15px;font-weight:700;font-size:15px;cursor:pointer;font-family:var(--sans)}
+    .btn-submit:hover{background:var(--coral-deep);color:#fff}
+    .btn-submit:disabled{opacity:.6;cursor:default}
+    .form-note{font-size:12.5px;color:var(--muted);margin-top:12px}
+    .form-status{display:none;padding:12px 14px;border-radius:10px;font-size:14px;margin-bottom:14px}
+    .form-status.ok{display:block;background:#e8f6ef;color:#176a4a}
+    .form-status.err{display:block;background:#fdecec;color:#b3261e}
+    .hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+
     @media(max-width:760px){
+      .form-grid{grid-template-columns:1fr;gap:28px}
       .hero{grid-template-columns:1fr;text-align:center;padding:48px 0 60px}
       .hero h1,.hero p{margin-left:auto;margin-right:auto}
       .badge{order:-1}
@@ -99,6 +125,7 @@
         <nav>
           <a href="#services">Services</a>
           <a href="#about">About</a>
+          <a href="#careers">Careers</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
@@ -160,18 +187,44 @@
           <dt>ACN</dt><dd>663 845 047</dd>
           <dt>ABN</dt><dd>93 663 845 047</dd>
           <dt>Registered office</dt><dd>Tarneit, VIC 3029, Australia</dd>
-          <dt>Email</dt><dd><a href="mailto:info@entyti.com">info@entyti.com</a></dd>
+          <dt>Email</dt><dd><a href="mailto:jify.tech@gmail.com">jify.tech@gmail.com</a></dd>
         </dl>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="band">
+  <span id="contact"></span>
+  <section id="careers" class="form-band">
     <div class="wrap">
-      <span class="eyebrow">Contact</span>
-      <h2>Tell us what to build or who to hire</h2>
-      <p>Send us the project to deliver or the role to fill. We'll come back with a straight answer on how we can help.</p>
-      <a class="cta" href="mailto:info@entyti.com">info@entyti.com</a>
+      <div class="form-grid">
+        <div>
+          <span class="eyebrow">Careers &amp; Contact</span>
+          <h2>Hiring, or looking for your next role?</h2>
+          <p>Whether you need technology people for your team, or you're a developer or IT professional after your next move — tell us below and we'll get back to you personally.</p>
+          <p style="margin-top:16px"><strong>Prefer email?</strong> <a href="mailto:jify.tech@gmail.com" style="color:var(--coral)">jify.tech@gmail.com</a></p>
+        </div>
+        <form class="form-card" id="jtForm" novalidate>
+          <div class="form-status" id="jtStatus" role="status"></div>
+          <input type="hidden" name="_subject" value="New enquiry from jifytech.com.au" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="field">
+            <label>I'm…</label>
+            <div class="seg">
+              <label><input type="radio" name="enquiry_type" value="Hiring talent" checked /><span>Hiring talent</span></label>
+              <label><input type="radio" name="enquiry_type" value="Looking for a role" /><span>Looking for a role</span></label>
+            </div>
+          </div>
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" required autocomplete="name" /></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" name="email" required autocomplete="email" /></div>
+          <div class="field"><label for="f-cr">Company / role of interest</label><input id="f-cr" name="company_role" /></div>
+          <div class="field"><label for="f-link">LinkedIn or CV link (optional)</label><input id="f-link" name="link" placeholder="https://" inputmode="url" /></div>
+          <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+          <button class="btn-submit" type="submit">Send enquiry</button>
+          <p class="form-note">We'll only use your details to respond to this enquiry.</p>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -180,10 +233,32 @@
       <div class="row">
         <img src="/assets/logo-white.svg" alt="JifyTech" />
         <div>&copy; <span id="yr">2026</span> JifyTech Pty Ltd · ABN 93 663 845 047 · Melbourne, Australia</div>
-        <div><a href="mailto:info@entyti.com">info@entyti.com</a></div>
+        <div><a href="mailto:jify.tech@gmail.com">jify.tech@gmail.com</a></div>
       </div>
     </div>
   </footer>
-  <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+  <script>
+    document.getElementById('yr').textContent=new Date().getFullYear();
+    (function(){
+      var f=document.getElementById('jtForm'); if(!f) return;
+      var st=document.getElementById('jtStatus');
+      f.addEventListener('submit',function(e){
+        e.preventDefault();
+        if(!f.reportValidity()) return;
+        var btn=f.querySelector('button[type=submit]');
+        btn.disabled=true; var label=btn.textContent; btn.textContent='Sending…';
+        st.className='form-status';
+        var EP='https://formsubmit.co/ajax/jify.tech@gmail.com';
+        fetch(EP,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(f)))})
+          .then(function(r){return r.json();})
+          .then(function(d){
+            if(d.success===true||d.success==='true'){st.textContent='Thanks — your enquiry is in. We’ll be in touch shortly.';st.className='form-status ok';f.reset();}
+            else{throw new Error(d.message||'failed');}
+          })
+          .catch(function(){st.textContent='Sorry, something went wrong. Please email jify.tech@gmail.com directly.';st.className='form-status err';})
+          .finally(function(){btn.disabled=false; btn.textContent=label;});
+      });
+    })();
+  </script>
 </body>
 </html>

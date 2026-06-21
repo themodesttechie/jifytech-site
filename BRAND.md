@@ -35,4 +35,4 @@ Coral on navy = brand signature. For body text on light, use Ink; for coral link
 Tagline: **"Just in for you."** Responsive, on-demand, accountable. Plain-spoken, no hype. Lead with the customer's saved time, not the tech.
 
 ## Company facts (for footers / legal)
-JifyTech Pty Ltd · ACN 663 845 047 · ABN 93 663 845 047 · Tarneit, VIC 3029, Australia · info@entyti.com
+JifyTech Pty Ltd · ACN 663 845 047 · ABN 93 663 845 047 · Tarneit, VIC 3029, Australia · jify.tech@gmail.com
